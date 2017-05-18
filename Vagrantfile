@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
     shell.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
   end
 
-  config.vm.provision "shell", path: "scripts/rails.sh"
-  config.vm.provision "shell", path: "scripts/nodejs.sh"
+  config.vm.provision :shell, path: "scripts/nodejs.sh"
+  config.vm.provision :shell, path: "scripts/rvm.sh", args: "stable", privileged: false
+  config.vm.provision :shell, path: "scripts/ruby.sh", args: "2.4.0 rails", privileged: false
 end

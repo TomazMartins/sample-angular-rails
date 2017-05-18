@@ -6,6 +6,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuestionFormComponent } from './questions/question-form/question-form.component';
+import { QuestionService } from './questions/shared/question.service';
+
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,10 @@ import { QuestionFormComponent } from './questions/question-form/question-form.c
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
